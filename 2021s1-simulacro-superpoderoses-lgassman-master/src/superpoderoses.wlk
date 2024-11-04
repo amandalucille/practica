@@ -7,12 +7,8 @@ class Personaje{
     poderes.sum({p => p.capacidadDeBatalla(self)})
 
     method suMejorPoder(personaje) = poderes.max({p => p.capacidadDeBatalla(self)})
-
-    //method puedeAfrontarPeligro(peligro) = 
-    //if (not(self.suCapacidadDeBatalla() > peligro.capacidadDeBatalla() and 
-    //(self.esInmuneALaRadiactividad() || not (peligro.tieneDesechosRadiactivos())))) 
-      //  self.error("no puede afrontar el peligro")
-     method puedeAfrontarPeligro(peligro) = 
+    
+    method puedeAfrontarPeligro(peligro) = 
     self.suCapacidadDeBatalla() > peligro.capacidadDeBatalla() and 
     (self.esInmuneALaRadiactividad() || not (peligro.tieneDesechosRadiactivos())) 
             
@@ -22,7 +18,7 @@ class Personaje{
 
     method enfrentarPeligro(peligro) {
         if (self.puedeAfrontarPeligro(peligro))
-      estrategia += peligro.nivelDeComplejidad()
+            estrategia += peligro.nivelDeComplejidad()
     }
 }
 
@@ -75,6 +71,11 @@ class Equipo{
     method miembroMasVulnerable() = miembros.min({m => m.suCapacidadDeBatalla()})
     method calidad()              = (miembros.sum({m => m.suCapacidadDeBatalla()}) ) / miembros.size() 
     method mejoresPoderes()        = miembros.map({m => m.suMejorPoder(m)}).asSet() 
+
+    method enfrentar(peligro) {
+        
+        miembros.forEach({m => m.enfrentarPeligro(peligro)})
+    }
 } 
 
 class Peligro{
@@ -83,11 +84,4 @@ class Peligro{
     const property nivelDeComplejidad  
 
     method esSensato(equipo) = equipo.miembros().all({m=>m.puedeAfrontarPeligro(self)})         
-    
-
-
-
-
-
-
 }

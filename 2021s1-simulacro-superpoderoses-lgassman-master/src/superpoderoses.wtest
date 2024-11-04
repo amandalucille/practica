@@ -2,6 +2,7 @@ import superpoderoses.*
 
 describe "Superpoderoses" {
 	
+	
 	/* ACLARACIÓN 
 	 * El test asume todos los objetos como instancias de clases. 
 	 * Si el diseño de la solución utiliza objetos bien conocidos en algunos casos entonces 
@@ -133,32 +134,35 @@ describe "Superpoderoses" {
 		usinaDeDerechos.enfrentarPeligro(peligroSencilloRadiactivo)/// TODO: Hacer que usinaDeDerechos afronte a peligroSencilloRadiactivo (NO SE PUEDE!)
 		assert.equals(1, usinaDeDerechos.estrategia())// TODO: Verificar que la estrategia de usinaDeDerechos es 1
 		
+		
 	}
  
 	
 
 	test "punto 4.1 Afrontar peligro individualmente: no OK por capacidad de batalla" {
-		// TODO: Hacer que usinaDeDerechos afronte a peligroModerado (NO SE PUEDE!)
-		// TODO: Verificar que la estrategia de usinaDeDerechos es 1
+		usinaDeDerechos.enfrentarPeligro(peligroModerado) // TODO: Hacer que usinaDeDerechos afronte a peligroModerado (NO SE PUEDE!)
+		assert.equals(1, usinaDeDerechos.estrategia())// TODO: Verificar que la estrategia de usinaDeDerechos es 1
+		
+		
 	}
  
 	
 
 	test "punto 4.2  Afrontar peligro (moderado) en equipo  " {
-		// TODO: Hacer que cooperativaJusticiera afronte a peligroModerado
-		// TODO: Verificar que la estrategia de capitanaPatriaGrande es 5
-		// TODO: Verificar que la estrategia de plusvaliaCero es 4
-		// TODO: Verificar que la estrategia de usinaDeDerechos es 1		
+		cooperativaJusticiera.enfrentar(peligroModerado)// TODO: Hacer que cooperativaJusticiera afronte a peligroModerado
+		//assert.equals(5, capitanaPatriaGrande.estrategia())// TODO: Verificar que la estrategia de capitanaPatriaGrande es 5
+		assert.equals(4, plusvaliaCero.estrategia())// TODO: Verificar que la estrategia de plusvaliaCero es 4
+		assert.equals(1, usinaDeDerechos.estrategia())// TODO: Verificar que la estrategia de usinaDeDerechos es 1	
+
 	}
  
 
 
 	test "punto 4.2  Afrontar peligro (alto) en equipo (no ok)" {
-		
-		// TODO: Hacer que cooperativaJusticiera afronte a peligroAlto (NO SE PUEDE!)
-		// TODO: Verificar que la estrategia de capitanaPatriaGrande es 3
-		// TODO: Verificar que la estrategia de plusvaliaCero es 2
-		// TODO: Verificar que la estrategia de usinaDeDerechos es 1
+		cooperativaJusticiera.enfrentar(peligroAlto) // TODO: Hacer que cooperativaJusticiera afronte a peligroAlto (NO SE PUEDE!)
+		//assert.equals(3, capitanaPatriaGrande.estrategia())// TODO: Verificar que la estrategia de capitanaPatriaGrande es 3
+		assert.equals(2, plusvaliaCero.estrategia())// TODO: Verificar que la estrategia de plusvaliaCero es 2
+		assert.equals(1, usinaDeDerechos.estrategia())// TODO: Verificar que la estrategia de usinaDeDerechos es 1
 	}
  	
 
