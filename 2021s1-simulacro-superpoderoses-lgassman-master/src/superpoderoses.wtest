@@ -29,10 +29,10 @@ describe "Superpoderoses" {
 		
 		// // Punto 3 
 		// // Peligros
-		// const peligroSencillo = // TODO: constrir/obtener un peligro con capacidad de batalla = 30 y NO tiene desechos radiactivos  
-		// const peligroSencilloRadiactivo = // TODO: constrir/obtener un peligro con capacidad de batalla = 30 y tiene desechos radiactivos
-		// const peligroModerado = // TODO: constrir/obtener un peligro con capacidad de batalla = 50 y NO tiene desechos radiactivos
-		// const peligroAlto =  // TODO: constrir/obtener un peligro con capacidad de batalla = 400 y tiene desechos radiactivos
+		 const peligroSencillo = new Peligro(capacidadDeBatalla = 30, tieneDesechosRadiactivos = false) // TODO: constrir/obtener un peligro con capacidad de batalla = 30 y NO tiene desechos radiactivos  
+		 const peligroSencilloRadiactivo =  new Peligro(capacidadDeBatalla = 30, tieneDesechosRadiactivos = true) // TODO: constrir/obtener un peligro con capacidad de batalla = 30 y tiene desechos radiactivos
+		 const peligroModerado = new Peligro(capacidadDeBatalla = 50, tieneDesechosRadiactivos = false)// TODO: constrir/obtener un peligro con capacidad de batalla = 50 y NO tiene desechos radiactivos
+		 const peligroAlto =  new Peligro(capacidadDeBatalla = 400, tieneDesechosRadiactivos = true)  // TODO: constrir/obtener un peligro con capacidad de batalla = 400 y tiene desechos radiactivos
 
         // // Punto 4
         // // TODO: agregar al peligroSencillo nivel de complejidad = 1 y cantidad de personajes que se banca en simultaneo = 2
@@ -90,9 +90,9 @@ describe "Superpoderoses" {
 	
 
 	test "punto 3.1 personajes contra el peligro" {
-		// TODO: Verificar que peligroSencillo puede ser afrontado por capitanaPatriaGrande
-		// TODO: Verificar que peligroSencillo puede ser afrontado por plusvaliaCero
-		// TODO: Verificar que peligroSencillo puede ser afrontado por usinaDeDerechos
+		assert.that(capitanaPatriaGrande.puedeAfrontarPeligro(peligroSencillo))// TODO: Verificar que peligroSencillo puede ser afrontado por capitanaPatriaGrande
+		assert.that(plusvaliaCero.puedeAfrontarPeligro(peligroSencillo))// TODO: Verificar que peligroSencillo puede ser afrontado por plusvaliaCero
+		assert.that(usinaDeDerechos.puedeAfrontarPeligro(peligroSencillo))// TODO: Verificar que peligroSencillo puede ser afrontado por usinaDeDerechos
 		
 
 		// TODO: Verificar que peligroSencilloRadiactivo puede ser afrontado por capitanaPatriaGrande

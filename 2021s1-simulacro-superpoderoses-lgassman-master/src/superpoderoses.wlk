@@ -8,10 +8,13 @@ class Personaje{
 
     method suMejorPoder(personaje) = poderes.max({p => p.capacidadDeBatalla(self)})
 
-    method puedeAfrontarPeligro(peligro){
-        self.suCapacidadDeBatalla() > peligro.capacidadDeBatalla() and self.esInmuneALaRadiactividad()
-    }
-     method esInmuneALaRadiactividad() = 
+    method puedeAfrontarPeligro(peligro) =
+        self.suCapacidadDeBatalla() > peligro.capacidadDeBatalla() 
+        and 
+        (self.esInmuneALaRadiactividad() || not (peligro.tieneDesechosRadiactivos())  )
+    
+     method esInmuneALaRadiactividad() =
+        poderes.any({p => p.otorgaInmunidad()})       
 }
 
 class Poder{
@@ -22,7 +25,8 @@ class Poder{
     method agilidad(personaje)          
     method fuerza(personaje)            
     method habilidadEspecial(personaje) = personaje.espiritualidad() + personaje.estrategia()
-           
+
+    method otorgaInmunidad()             
 }
 
 class Velocidad inherits Poder{
@@ -31,6 +35,7 @@ class Velocidad inherits Poder{
     override method agilidad(personaje)          = personaje.estrategia()     * rapidez
     override method fuerza(personaje)            = personaje.espiritualidad() * rapidez
     
+    override method otorgaInmunidad() = false
 
 }
 
@@ -40,7 +45,7 @@ class Vuelo inherits Poder{
 
     override method agilidad(personaje) = (personaje.estrategia() * alturaMaxima) / energiaParaDespegue
     override method fuerza(personaje)   = personaje.espiritualidad() + alturaMaxima - energiaParaDespegue  
-       
+    override method otorgaInmunidad() = alturaMaxima > 200
 }
 
 class PoderAmplificador inherits Poder{
@@ -50,9 +55,12 @@ class PoderAmplificador inherits Poder{
     override method agilidad(personaje) = poderBase.agilidad(personaje)
     override method fuerza(personaje) = poderBase.fuerza(personaje)
     override method habilidadEspecial(personaje) = poderBase.habilidadEspecial(personaje) * amplificador
+
+    override method otorgaInmunidad() = true
 }
 
 class Equipo{
+    
     const miembros = #{}
 
     method miembroMasVulnerable() = miembros.min({m => m.suCapacidadDeBatalla()})
@@ -62,9 +70,8 @@ class Equipo{
 } 
 
 class Peligro{
-    var property capacidadDeBatalla
-    
-    method tieneDesechosRadiactivos() 
+    const property capacidadDeBatalla
+    const property tieneDesechosRadiactivos 
         
     
 
