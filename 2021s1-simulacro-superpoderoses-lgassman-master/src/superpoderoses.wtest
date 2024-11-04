@@ -29,10 +29,10 @@ describe "Superpoderoses" {
 		
 		// // Punto 3 
 		// // Peligros
-		 const peligroSencillo = new Peligro(capacidadDeBatalla = 30, tieneDesechosRadiactivos = false) // TODO: constrir/obtener un peligro con capacidad de batalla = 30 y NO tiene desechos radiactivos  
-		 const peligroSencilloRadiactivo =  new Peligro(capacidadDeBatalla = 30, tieneDesechosRadiactivos = true) // TODO: constrir/obtener un peligro con capacidad de batalla = 30 y tiene desechos radiactivos
-		 const peligroModerado = new Peligro(capacidadDeBatalla = 50, tieneDesechosRadiactivos = false)// TODO: constrir/obtener un peligro con capacidad de batalla = 50 y NO tiene desechos radiactivos
-		 const peligroAlto =  new Peligro(capacidadDeBatalla = 400, tieneDesechosRadiactivos = true)  // TODO: constrir/obtener un peligro con capacidad de batalla = 400 y tiene desechos radiactivos
+		 const peligroSencillo = new Peligro(capacidadDeBatalla = 30, tieneDesechosRadiactivos = false,nivelDeComplejidad = 1) // TODO: constrir/obtener un peligro con capacidad de batalla = 30 y NO tiene desechos radiactivos  
+		 const peligroSencilloRadiactivo =  new Peligro(capacidadDeBatalla = 30, tieneDesechosRadiactivos = true,nivelDeComplejidad = 1) // TODO: constrir/obtener un peligro con capacidad de batalla = 30 y tiene desechos radiactivos
+		 const peligroModerado = new Peligro(capacidadDeBatalla = 50, tieneDesechosRadiactivos = false,nivelDeComplejidad = 2)// TODO: constrir/obtener un peligro con capacidad de batalla = 50 y NO tiene desechos radiactivos
+		 const peligroAlto =  new Peligro(capacidadDeBatalla = 400, tieneDesechosRadiactivos = true,nivelDeComplejidad = 3)  // TODO: constrir/obtener un peligro con capacidad de batalla = 400 y tiene desechos radiactivos
 
         // // Punto 4
         // // TODO: agregar al peligroSencillo nivel de complejidad = 1 y cantidad de personajes que se banca en simultaneo = 2
@@ -95,37 +95,36 @@ describe "Superpoderoses" {
 		assert.that(usinaDeDerechos.puedeAfrontarPeligro(peligroSencillo))// TODO: Verificar que peligroSencillo puede ser afrontado por usinaDeDerechos
 		
 
-		// TODO: Verificar que peligroSencilloRadiactivo puede ser afrontado por capitanaPatriaGrande
-		// TODO: Verificar que peligroSencilloRadiactivo puede ser afrontado por plusvaliaCero
-		// TODO: Verificar que peligroSencilloRadiactivo NO puede ser afrontado por usinaDeDerechos
+		assert.that(capitanaPatriaGrande.puedeAfrontarPeligro(peligroSencilloRadiactivo))// TODO: Verificar que peligroSencilloRadiactivo puede ser afrontado por capitanaPatriaGrande
+		assert.that(plusvaliaCero.puedeAfrontarPeligro(peligroSencilloRadiactivo))// TODO: Verificar que peligroSencilloRadiactivo puede ser afrontado por plusvaliaCero
+		assert.notThat(usinaDeDerechos.puedeAfrontarPeligro(peligroSencilloRadiactivo))// TODO: Verificar que peligroSencilloRadiactivo NO puede ser afrontado por usinaDeDerechos
 		
 
-		// TODO: Verificar que peligroModerado puede ser afrontado por capitanaPatriaGrande
-		
-		// TODO: Verificar que peligroModerado puede ser afrontado por plusvaliaCero
-		// TODO: Verificar que peligroModerado NO puede ser afrontado por usinaDeDerechos
+		assert.that(capitanaPatriaGrande.puedeAfrontarPeligro(peligroModerado))// TODO: Verificar que peligroModerado puede ser afrontado por capitanaPatriaGrande
+		assert.that(plusvaliaCero.puedeAfrontarPeligro(peligroModerado))// TODO: Verificar que peligroModerado puede ser afrontado por plusvaliaCero
+		assert.notThat(usinaDeDerechos.puedeAfrontarPeligro(peligroModerado))// TODO: Verificar que peligroModerado NO puede ser afrontado por usinaDeDerechos
 		
 	
-		// TODO: Verificar que peligroAlto puede ser afrontado por capitanaPatriaGrande
-		// TODO: Verificar que peligroAlto NO puede ser afrontado por plusvaliaCero
-		// TODO: Verificar que peligroAlto NO puede ser afrontado por usinaDeDerechos
+		assert.that(capitanaPatriaGrande.puedeAfrontarPeligro(peligroAlto))// TODO: Verificar que peligroAlto puede ser afrontado por capitanaPatriaGrande
+		assert.notThat(plusvaliaCero.puedeAfrontarPeligro(peligroAlto))// TODO: Verificar que peligroAlto NO puede ser afrontado por plusvaliaCero
+		assert.notThat(usinaDeDerechos.puedeAfrontarPeligro(peligroAlto))// TODO: Verificar que peligroAlto NO puede ser afrontado por usinaDeDerechos
 		
 	}
  
 	
 
 	test "punto 3.2 Saber si un peligro es sensato " {
-		// TODO: Verificar que peligroSencillo es sensato para cooperativaJusticiera
-		// TODO: Verificar que peligroSencilloRadiactivo NO es sensato para cooperativaJusticiera
-		// TODO: Verificar que peligroModerado NO es sensato para cooperativaJusticiera
-		// TODO: Verificar que peligroAlto NO es sensato para cooperativaJusticiera
+		assert.that(peligroSencillo.esSensato(cooperativaJusticiera))// TODO: Verificar que peligroSencillo es sensato para cooperativaJusticiera
+		assert.notThat(peligroSencilloRadiactivo.esSensato(cooperativaJusticiera))// TODO: Verificar que peligroSencilloRadiactivo NO es sensato para cooperativaJusticiera
+		assert.notThat(peligroModerado.esSensato(cooperativaJusticiera))// TODO: Verificar que peligroModerado NO es sensato para cooperativaJusticiera
+		assert.notThat(peligroAlto.esSensato(cooperativaJusticiera))// TODO: Verificar que peligroAlto NO es sensato para cooperativaJusticiera
 	}
  	
 	
 
 	test "punto 4.1 Afrontar peligro individualmente: OK" {
-		// TODO: Hacer que usinaDeDerechos afronte a peligroSencillo 
-		// TODO: Verificar que la estrategia de usinaDeDerechos es 2
+		usinaDeDerechos.enfrentarPeligro(peligroSencillo)// TODO: Hacer que usinaDeDerechos afronte a peligroSencillo 
+		assert.equals(2, usinaDeDerechos.estrategia())// TODO: Verificar que la estrategia de usinaDeDerechos es 2
 	}
  
 

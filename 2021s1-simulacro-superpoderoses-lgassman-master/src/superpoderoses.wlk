@@ -15,6 +15,10 @@ class Personaje{
     
      method esInmuneALaRadiactividad() =
         poderes.any({p => p.otorgaInmunidad()})       
+
+    method enfrentarPeligro(peligro) {
+      estrategia =+ peligro.nivelDeComplejidad()
+    }
 }
 
 class Poder{
@@ -61,18 +65,19 @@ class PoderAmplificador inherits Poder{
 
 class Equipo{
     
-    const miembros = #{}
+    const property miembros = #{}
 
     method miembroMasVulnerable() = miembros.min({m => m.suCapacidadDeBatalla()})
     method calidad()              = (miembros.sum({m => m.suCapacidadDeBatalla()}) ) / miembros.size() 
     method mejoresPoderes()        = miembros.map({m => m.suMejorPoder(m)}).asSet() 
-    
 } 
 
 class Peligro{
     const property capacidadDeBatalla
     const property tieneDesechosRadiactivos 
-        
+    const property nivelDeComplejidad  
+
+    method esSensato(equipo) = equipo.miembros().all({m=>m.puedeAfrontarPeligro(self)})         
     
 
 
