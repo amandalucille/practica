@@ -235,3 +235,5 @@
 {"failures":[],"level":"info","message":"🧪 Test runner executed on c:\\Users\\CEQ-13\\Desktop\\UNQ\\practica\\2021s1-simulacro-superpoderoses-lgassman-master","result":{"failed":0,"ok":0},"timeElapsed":260,"timestamp":"2024-11-04T20:28:48.523Z"}
 {"failures":[],"level":"info","message":"🧪 Test runner executed on c:\\Users\\CEQ-13\\Desktop\\UNQ\\practica\\2021s1-simulacro-superpoderoses-lgassman-master","result":{"failed":0,"ok":1},"timeElapsed":284,"timestamp":"2024-11-04T20:28:57.657Z"}
 {"failures":[],"level":"info","message":"🧪 Test runner executed on c:\\Users\\CEQ-13\\Desktop\\UNQ\\practica\\2021s1-simulacro-superpoderoses-lgassman-master","result":{"failed":0,"ok":1},"timeElapsed":280,"timestamp":"2024-11-04T20:29:24.975Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":126,"timestamp":"2024-11-04T20:37:31.509Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":122,"timestamp":"2024-11-04T20:38:20.905Z"}
