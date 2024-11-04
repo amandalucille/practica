@@ -81,3 +81,4 @@
 {"level":"info","message":"⌛ Validating 2021s1-simulacro-superpoderoses-lgassman-master/src/superpoderoses.wtest","timeElapsed":104,"timestamp":"2024-11-04T04:29:35.841Z"}
 {"level":"info","message":"onRequest - completionItem/resolve","timestamp":"2024-11-04T04:29:35.920Z"}
 {"failures":[],"level":"info","message":"🧪 Test runner executed on c:\\Users\\valen\\OneDrive\\Escritorio\\Amanda Hermosa\\objectos\\practica","result":{"failed":0,"ok":1},"timeElapsed":350,"timestamp":"2024-11-04T04:29:44.795Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":168,"timestamp":"2024-11-04T04:29:49.777Z"}
