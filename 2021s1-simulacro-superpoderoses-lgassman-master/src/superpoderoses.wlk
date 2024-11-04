@@ -8,17 +8,24 @@ class Personaje{
 
     method suMejorPoder(personaje) = poderes.max({p => p.capacidadDeBatalla(self)})
 
-    method puedeAfrontarPeligro(peligro) =
-        self.suCapacidadDeBatalla() > peligro.capacidadDeBatalla() 
-        and 
-        (self.esInmuneALaRadiactividad() || not (peligro.tieneDesechosRadiactivos())  )
+    method puedeAfrontarPeligro(peligro) = 
+    if (not(self.suCapacidadDeBatalla() > peligro.capacidadDeBatalla() and 
+    (self.esInmuneALaRadiactividad() || not (peligro.tieneDesechosRadiactivos())))) 
+        self.error("no puede afrontar el peligro")
+    
+    method enfrentarPeligro(peligro) {
+        if (self.puedeAfrontarPeligro(peligro))
+      estrategia += peligro.nivelDeComplejidad()
+    }
+    // method puedeAfrontarPeligro(peligro) = 
+    // self.suCapacidadDeBatalla() > peligro.capacidadDeBatalla() and 
+    //(self.esInmuneALaRadiactividad() || not (peligro.tieneDesechosRadiactivos())) 
+            
     
      method esInmuneALaRadiactividad() =
         poderes.any({p => p.otorgaInmunidad()})       
 
-    method enfrentarPeligro(peligro) {
-      estrategia =+ peligro.nivelDeComplejidad()
-    }
+    
 }
 
 class Poder{
